@@ -1,0 +1,61 @@
+/**********************************
+* ПИ-221                          *
+* Иванов Тимофей                  *
+* Календарь                       *
+* 13.11.2022                      *
+**********************************/
+
+https://www.onlinegdb.com/lrEPUpNZs
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+int shift;
+void showMonth(string month, int days) {
+  cout << "      " << month << "\n пн вт ср чт пт сб вс\n";
+  int weekDay = 1;
+  int nowDay = 1;
+  while (shift > 0) {
+      cout << "   ";
+      shift -= 1;
+      weekDay += 1;
+    }
+  while (nowDay <= days) {
+    cout << setw(3) << nowDay;
+    nowDay += 1;
+    weekDay += 1;
+    if (weekDay == 8) {
+      weekDay = 1;
+      cout << "\n";
+    }
+  }
+  shift = weekDay - 1;
+  cout << "\n\n";
+}
+
+int main() {
+  int year;
+  cout << "введите год: ";
+  cin >> year;
+  shift = ((year + (year / 400) + (year / 4) - (year / 100)) % 7) - 1;
+
+  showMonth("январь", 31);
+  if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) {
+    showMonth("февраль", 29);
+  }
+  else {
+    showMonth("февраль", 28);
+  }
+  showMonth("март", 31);
+  showMonth("апрель", 30);
+  showMonth("май", 31);
+  showMonth("июнь", 30);
+  showMonth("июль", 31);
+  showMonth("август", 31);
+  showMonth("сентябрь", 30);
+  showMonth("октябрь", 31);
+  showMonth("ноябрь", 30);
+  showMonth("декабрь", 31);
+  return 0;
+}
