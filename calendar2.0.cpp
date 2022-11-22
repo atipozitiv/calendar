@@ -23,15 +23,15 @@ void showMonths(string monthOne, string monthTwo, int daysOne, int daysTwo) {
     while (shiftOne != 0) {
       cout << "   ";
       shiftOne -= 1;
-      weekDayOne +=1;
+      weekDayOne += 1;
     }
     while (((weekDayOne) <= 10) && (nowDayOne <= daysOne)) {
       cout << setw(3) << nowDayOne;
       nowDayOne += 1;
-      weekDayOne +=1;
+      weekDayOne += 1;
     }
-    if (nowDayOne == daysTwo) {
-      while (weekDayOne != 10) {
+    if (nowDayOne >= daysOne) {
+      while (weekDayOne <= 10) {
         cout << "   ";
         weekDayOne += 1;
       }
@@ -41,12 +41,12 @@ void showMonths(string monthOne, string monthTwo, int daysOne, int daysTwo) {
     while (shiftTwo != 0) {
       cout << "   ";
       shiftTwo -= 1;
-      weekDayTwo +=1;
+      weekDayTwo += 1;
     }
     while ((weekDayTwo <= 10) && (nowDayTwo <= daysTwo)) {
       cout << setw(3) << nowDayTwo;
-      nowDayTwo +=1;
-      weekDayTwo +=1;
+      nowDayTwo += 1;
+      weekDayTwo += 1;
     }
     weekDayTwo = 1;
     cout << "\n";
